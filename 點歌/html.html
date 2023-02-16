@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="shortcut icon" href="shortcut.png"> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"> -->
+    <link href='https://css.gg/play-button-o.css' rel='stylesheet'>
+    <link href='https://css.gg/play-pause-o.css' rel='stylesheet'>
+    <link href='https://css.gg/search.css' rel='stylesheet'>
+    <title>點歌?</title>
+</head>
+
+<body>
+    <div id="page">
+        <div id="search">
+            <input type="text" id="in">
+            <!-- <button id="sand"> -->
+                <i id="sand" class="gg-search"></i>
+            <!-- </button> -->
+        </div>
+        <hr>
+        <div id="menu">
+            <button id="s1">T1</button>
+            <button id="s2">T1</button>
+            <button id="s3">T1</button>
+        </div>
+        <div id="data">
+            <p id="name">1234567</p>
+            <progress id="schedule" value="70" max="100"></progress>
+            <div id="ddd">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
+                    stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round"
+                        d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" />
+                </svg>
+                <input id="volume" type="range">
+                <!-- <i id="play" class="gg-play-button-o"></i> -->
+                <i id="play" class="gg-play-pause-o"></i>
+                <p id="time">03:22/12:22</p>
+            </div>
+        </div>
+    </div>
+    <script src="js.js"></script>
+</body>
+
+</html>
