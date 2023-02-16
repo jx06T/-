@@ -2,8 +2,11 @@
     margin: 10px;
     margin-top: 30px;
 }
+*{
+    color:black;
+}
 #search>input{
-    height:15px;
+    height:20px;
     width: 70%;
 }
 #search>button{
@@ -17,7 +20,7 @@
 }
 #sand{
     margin-left: 5px;
-    margin-top: 0px;
+    margin-top: 2px;
 }
 hr{
     border: 0.5px solid rgb(61, 61, 61);
@@ -30,6 +33,7 @@ hr{
 #menu>button{
     margin-left: 0px;
     margin-bottom: 15px;
+    height: 25px;
 }
 #data{
     display: flex;
