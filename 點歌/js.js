@@ -1,4 +1,4 @@
-let url = 'https://script.google.com/macros/s/AKfycbx3oXOq3VkQQeYULCC5h506iviTOyVsUhnv_0BmVUjSfH7nv2azam92P2PbyaF26sufqg/exec'
+let url = 'https://script.google.com/macros/s/AKfycbwgrFPmi7kzaXDQlZ0IIkjsW1LFMLpBydb_bvOVhXfgKT1nLl28bO0fznAIqjpKw6RE1Q/exec'
 let type = "u"
 let N = ""
 let K = 0
@@ -50,4 +50,4 @@ setInterval(function () {
     // console.log(type)
     getJSON(url, K, volume.value, type, N)
     type = "u"
-}, 2000);
+}, 1500);

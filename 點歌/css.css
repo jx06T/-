@@ -3,7 +3,8 @@
     margin-top: 30px;
 }
 *{
-    color:black;
+    color:rgb(0, 0, 0);
+    font-family:  "Microsoft JhengHei", PingFang, STHeiti, sans-serif, serif;
 }
 #search>input{
     height:20px;
@@ -30,7 +31,7 @@ hr{
 #menu>button{
     margin-left: 0px;
     margin-bottom: 15px;
-    height: 40px;
+    height: 30px;
 }
 #data{
     display: flex;
