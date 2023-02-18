@@ -72,7 +72,7 @@ const volume = document.getElementById("volume");
 getJSON(url, K, volume.value, type, N)
 
 setInterval(function () {
-    // console.log(type)
+    console.log(Nowtime)
     if (K == 0) {
         Nowtime += 0.334
     }
