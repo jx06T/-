@@ -77,6 +77,6 @@ setInterval(function () {
         Nowtime += 0.334
     }
     document.getElementById("schedule").value = Nowtime / Alltime * 100
-    document.getElementById("time").innerText = PrintTime(Nowtime, Alltime)
+//     document.getElementById("time").innerText = PrintTime(Nowtime, Alltime)
     document.getElementById("time").innerText = "1111"
 }, 333);
