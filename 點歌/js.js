@@ -73,7 +73,7 @@ getJSON(url, K, volume.value, type, N)
 
 setInterval(function () {
 //     console.log(Nowtime)
-    if (K == 0) {
+     if (K == 0&&Nowtime<Alltime) {
         Nowtime += 0.334
     }
     document.getElementById("schedule").value = Nowtime / Alltime * 100
