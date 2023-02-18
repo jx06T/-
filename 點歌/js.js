@@ -9,22 +9,23 @@ let getJSON = async (url, k, v, m, n) => {
     let response = await fetch(url + `?k=${k}&v=${v}&m=${m}&n=${n}`);
     let JSON = await response.json();
     // console.log(JSON)
-
+    type = "u"
     updata(JSON)
 }
 
 function updata(data) {
     document.getElementById("name").innerText = data[0]
-    if (Alltime != Number(data[1][0].split(":")[0] * 60) + Number(data[1][0].split(":")[1])) {
-        document.getElementById("time").innerText = data[2] + "/" + data[1]
-        Nowtime = Number(data[2][0].split(":")[0] * 60) + Number(data[2][0].split(":")[1])
-        Alltime = Number(data[1][0].split(":")[0] * 60) + Number(data[1][0].split(":")[1])
-        document.getElementById("schedule").value = Nowtime / Alltime * 100    
-    }
     document.getElementById("s1").innerText = data[3][0]
     document.getElementById("s2").innerText = data[3][1]
     document.getElementById("s3").innerText = data[3][2]
-
+    document.getElementById("s4").innerText = data[3][3]
+    document.getElementById("s5").innerText = data[3][4]
+    if (document.getElementById("name").innerText != data[0]||Alltime != Number(data[1][0].split(":")[0] * 60) + Number(data[1][0].split(":")[1])) {
+        document.getElementById("time").innerText = data[2] + "/" + data[1]
+        Nowtime = Number(data[2][0].split(":")[0] * 60) + Number(data[2][0].split(":")[1])
+        Alltime = Number(data[1][0].split(":")[0] * 60) + Number(data[1][0].split(":")[1])
+        document.getElementById("schedule").value = Nowtime / Alltime * 100
+    }
 }
 function check(id) {
     if (type != "u") return
@@ -66,17 +67,20 @@ document.getElementById("play").onclick = () => {
 document.getElementById("s1").onclick = () => check(1)
 document.getElementById("s2").onclick = () => check(2)
 document.getElementById("s3").onclick = () => check(3)
+document.getElementById("s4").onclick = () => check(4)
+document.getElementById("s5").onclick = () => check(5)
+document.getElementById("volume").onchange = () => getJSON(url, K, volume.value, type, N);
 const keyword = document.getElementById("in");
 const volume = document.getElementById("volume");
 
 getJSON(url, K, volume.value, type, N)
 
 setInterval(function () {
-//     console.log(Nowtime)
-     if (K == 0&&Nowtime<Alltime) {
+    // console.log(type)
+    if (K == 0 && Nowtime < Alltime) {
         Nowtime += 0.334
     }
     document.getElementById("schedule").value = Nowtime / Alltime * 100
     document.getElementById("time").innerText = PrintTime(Nowtime, Alltime)
-//     document.getElementById("time").innerText = "1111"
+    // document.getElementById("time").innerText = 'ffgew'
 }, 333);
