@@ -31,7 +31,7 @@ hr{
 #menu>button{
     margin-left: 0px;
     margin-bottom: 15px;
-    height: 30px;
+/*     height: 30px; */
 }
 #data{
     display: flex;
