@@ -1,9 +1,10 @@
-let url = 'https://script.google.com/macros/s/AKfycbwgrFPmi7kzaXDQlZ0IIkjsW1LFMLpBydb_bvOVhXfgKT1nLl28bO0fznAIqjpKw6RE1Q/exec'
+let url = 'https://script.google.com/macros/s/AKfycbzwGTVA5X9ispoioH8-UBkGJD280xWQaWXRJH7h6Y6iR3Mt3FZcb-3IHfedZmlLXkOpyQ/exec'
 // let type = "u"
 // let N = ""
 let K = 0
-let Nowtime = 166
-let Alltime = 503
+let Nowtime = 0
+let Alltime = 0
+let Ltime = 12345678
 let getJSON = async (url, k, v, m, n) => {
     console.log(url + `?k=${k}&v=${v}&m=${m}&n=${n}`)
     let response = await fetch(url + `?k=${k}&v=${v}&m=${m}&n=${n}`);
@@ -20,18 +21,17 @@ function updata(data) {
     document.getElementById("s3").innerText = data[3][2]
     document.getElementById("s4").innerText = data[3][3]
     document.getElementById("s5").innerText = data[3][4]
-    if (document.getElementById("name").innerText != data[0] || Alltime != Number(data[1][0])) {
-        Nowtime = Number(data[2][0])
-        Alltime = Number(data[1][0])
-        document.getElementById("schedule").value = Nowtime / Alltime * 100
-        document.getElementById("time").innerText = PrintTime(Nowtime, Alltime)
-    }
+    Nowtime = Number(data[2][0])
+    Alltime = Number(data[1][0])
+    Ltime = Number(data[4][0])
+    // document.getElementById("schedule").value = Nowtime / Alltime * 100
+    // document.getElementById("time").innerText = PrintTime(Nowtime, Alltime)
 }
 function check(id) {
     // if (type != "u") return
     // type = "c"
     // N = id
-    getJSON(url, K, volume.value,"c", id)
+    getJSON(url, K, volume.value, "c", id)
 }
 function search() {
     // type = "s"
@@ -73,15 +73,15 @@ document.getElementById("volume").onchange = () => getJSON(url, K, volume.value,
 const keyword = document.getElementById("in");
 const volume = document.getElementById("volume");
 
-getJSON(url, K, volume.value,"u","")
-
+let count = 0
 setInterval(function () {
-    // console.log(type)
-    if (K == 0 && Nowtime < Alltime) {
-        Nowtime += 0.334
+    count++
+    if (count % 4 == 0) {
+        getJSON(url, K, volume.value, "u", "")
     }
-    document.getElementById("schedule").value = Nowtime / Alltime * 100
-    document.getElementById("time").innerText = PrintTime(Nowtime, Alltime)
-    // console.log( Nowtime )
-    // document.getElementById("time").innerText = 'ffgew'
-}, 333);
+    if (((Date.now() / 1000) - Ltime + Nowtime) < Alltime && K == 0) {
+        document.getElementById("schedule").value = ((Date.now() / 1000) - Ltime + Nowtime) / Alltime * 100
+        document.getElementById("time").innerText = PrintTime((Date.now() / 1000) - Ltime + Nowtime, Alltime)
+        // console.log("?")
+    }
+}, 500);
